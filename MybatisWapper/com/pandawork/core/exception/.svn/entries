@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://219.217.42.188/svn/Pandawork"
+   revision="3894"
+   last-author="Lionel"
+   uuid="efd05c5c-f8b9-e84b-be0d-aa91dda4ecef"
+   url="https://219.217.42.188/svn/Pandawork/DevVerTwo/PandaworkCommon/PandaworkCore/branches/pandaworkcore2.0.0/code/src/com/pandawork/core/exception"
+   committed-rev="1115"
+   kind="dir"
+   committed-date="2011-03-22T01:00:50.073500Z"/>
+<entry
+   name="ExceptionMes.java"
+   checksum="978ffcd1e89b58f549f7ed531e86de2e"
+   last-author="Lionel"
+   text-time="2011-03-22T01:00:50.073000Z"
+   committed-rev="1115"
+   kind="file"
+   committed-date="2011-03-22T01:00:50.073500Z"/>
+<entry
+   name="IBizExceptionMes.java"
+   checksum="7b400ba278d8978abf724e13ab51c16d"
+   last-author="Lionel"
+   text-time="2011-03-22T01:00:50.073000Z"
+   committed-rev="1115"
+   kind="file"
+   committed-date="2011-03-22T01:00:50.073500Z"/>
+<entry
+   name="SSException.java"
+   checksum="e6f4425f38b513b9782dbfb4c704f256"
+   last-author="Lionel"
+   text-time="2011-03-22T01:00:50.073000Z"
+   committed-rev="1115"
+   kind="file"
+   committed-date="2011-03-22T01:00:50.073500Z"/>
+</wc-entries>

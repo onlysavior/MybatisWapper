@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pandawork.core.dao">
+	<delete id="deleteById" parameterType="map">
+		delete from `${tableName}` where `${idName}` = #{id}
+	</delete>
+	
+	<insert id="insert" parameterType="map">
+		insert into `${tableName}` 
+		<foreach collection="keyList" item="pair"  open="(" separator="," close=")">
+			`${pair.key}` 
+		</foreach> 
+		values
+		<foreach collection="keyList" item="pair" open="(" separator="," close=")">
+			#{pair.Value} 
+		</foreach>
+	</insert>
+	
+	<insert id="saveOrUpdate" parameterType="map">
+		insert into `${tableName}` 
+		<foreach collection="keyList" item="pair"  open="(" separator="," close=")">
+			`${pair.key}` 
+		</foreach> 
+		values
+		<foreach collection="keyList" item="pair" open="(" separator="," close=")">
+			#{pair.Value} 
+		</foreach>
+		on duplicate key update 
+		<foreach collection="keyList" item="pair" separator=",">
+			`${pair.key}` = #{pair.Value} 
+		</foreach>
+	</insert>
+	
+	<insert id="insertAll" parameterType="map">
+		insert into `${tableName}`
+		<foreach collection="fieldNames" item="fieldName"  open="(" separator="," close=")">
+			`${fieldName}`
+		</foreach>
+		values
+		<trim suffixOverrides=",">
+			<foreach collection="keyPairs" item="pair" separator="," >
+				<foreach collection="pair" item="subPair" open="(" separator="," close=")">
+					#{subPair.Value}
+				</foreach>
+			</foreach>
+		</trim>
+	</insert>
+	
+	<update id="update" parameterType="map">
+		update `${tableName}` set
+		<foreach collection="fieldsName" item="pair" separator=",">
+			`${pair.key}` = #{pair.Value}
+		</foreach>
+		where `${idName}` = #{id}
+	</update>
+	
+	<select id="queryById" parameterType="map" resultType="map">
+		select * from `${tableName}` where `${idName}` = #{id}
+	</select>
+	
+	<select id="queryCount" parameterType="map" resultType="Integer">
+		select count(1) from `${tableName}` where `${idName}` = #{id}
+	</select>
+	
+	<select id="queryByPage" parameterType="map" resultType="map">
+		${queryString} limit #{startPos},#{rowNum}
+	</select>
+	
+	<select id="getLastestId" parameterType="map" resultType="Integer">
+		select max(${idName}) from ${tableName}
+	</select>
+</mapper>

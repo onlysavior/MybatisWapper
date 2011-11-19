@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://219.217.42.188/svn/Pandawork"
+   revision="3894"
+   last-author="lij"
+   uuid="efd05c5c-f8b9-e84b-be0d-aa91dda4ecef"
+   url="https://219.217.42.188/svn/Pandawork/DevVerTwo/PandaworkCommon/PandaworkCore/branches/pandaworkcore2.0.0/code/src/com/pandawork/core/search/bridge"
+   committed-rev="3894"
+   kind="dir"
+   committed-date="2011-10-31T08:34:13.460500Z"/>
+<entry
+   name="BridgeFactory.java"
+   revision="3902"
+   checksum="085aac696e466631b720e5f9c3e13e5c"
+   last-author="lij"
+   committed-rev="3902"
+   text-time="2011-11-01T11:14:24.219000Z"
+   kind="file"
+   committed-date="2011-11-01T13:59:02.451000Z"/>
+<entry
+   name="FieldBridge.java"
+   checksum="ce177824aeab25838cdef5cc8915b619"
+   last-author="lij"
+   text-time="2011-10-31T08:34:13.460000Z"
+   committed-rev="3894"
+   kind="file"
+   committed-date="2011-10-31T08:34:13.460500Z"/>
+<entry
+   name="ParameterizedBridge.java"
+   revision="3897"
+   checksum="d8a876c20f5a9310cd34266b13ea80d6"
+   last-author="lij"
+   committed-rev="3897"
+   text-time="2011-10-31T12:42:42.108000Z"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+<entry
+   name="String2FieldBridgeAdaptor.java"
+   revision="3898"
+   checksum="c75801ff0971cb0153ebd8ae40b7af1c"
+   last-author="lij"
+   committed-rev="3898"
+   text-time="2011-10-31T13:56:09.126000Z"
+   kind="file"
+   committed-date="2011-10-31T15:13:15.101000Z"/>
+<entry
+   name="StringBridge.java"
+   revision="3897"
+   checksum="4f7f631612db513d93893bf1a4f7583f"
+   last-author="lij"
+   committed-rev="3897"
+   text-time="2011-10-31T12:35:36.173000Z"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+<entry
+   name="TwoWayFieldBridge.java"
+   checksum="d1af1c1746db14b4de9965c68ef40c35"
+   last-author="lij"
+   text-time="2011-10-31T08:34:13.460000Z"
+   committed-rev="3894"
+   kind="file"
+   committed-date="2011-10-31T08:34:13.460500Z"/>
+<entry
+   name="TwoWayString2FieldBridgeAdaptor.java"
+   revision="3898"
+   checksum="ab820cc8182b29dd8793e17230d6a5d2"
+   last-author="lij"
+   committed-rev="3898"
+   text-time="2011-10-31T13:58:50.549000Z"
+   kind="file"
+   committed-date="2011-10-31T15:13:15.101000Z"/>
+<entry
+   name="TwoWayStringBridge.java"
+   revision="3897"
+   checksum="2153c8bf5e28b1f415d559673e1d4680"
+   last-author="lij"
+   committed-rev="3897"
+   text-time="2011-10-31T12:36:02.194000Z"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+<entry
+   name="builtin"
+   kind="dir"/>
+<entry
+   name="utils"
+   kind="dir"/>
+</wc-entries>

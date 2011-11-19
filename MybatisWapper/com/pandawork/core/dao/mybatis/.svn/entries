@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://219.217.42.188/svn/Pandawork"
+   name=""
+   revision="3894"
+   last-author="lij"
+   url="https://219.217.42.188/svn/Pandawork/DevVerTwo/PandaworkCommon/PandaworkCore/branches/pandaworkcore2.0.0/code/src/com/pandawork/core/dao/mybatis"
+   uuid="efd05c5c-f8b9-e84b-be0d-aa91dda4ecef"
+   committed-rev="3888"
+   kind="dir"
+   committed-date="2011-10-30T12:13:53.444875Z"/>
+<entry
+   name="MapperScannerConfigurer.java"
+   checksum="ee2410923a92d60e6a6960dd84798dc3"
+   last-author="lij"
+   committed-rev="3826"
+   text-time="2011-09-16T07:55:38.467000Z"
+   kind="file"
+   committed-date="2011-09-16T07:55:38.467125Z"/>
+<entry
+   name="MapperUtil.java"
+   checksum="8516a041c1d47093a2151db0b09b8790"
+   last-author="zhangly"
+   committed-rev="3866"
+   text-time="2011-10-17T06:37:30.206000Z"
+   kind="file"
+   committed-date="2011-10-17T06:37:30.206500Z"/>
+<entry
+   name="QueryLogIntercepter.java"
+   checksum="5fa1ec5950768810c1b899875c1719a6"
+   last-author="lij"
+   committed-rev="3887"
+   text-time="2011-10-29T08:50:39.569000Z"
+   kind="file"
+   committed-date="2011-10-29T08:50:39.569875Z"/>
+<entry
+   name="SQLLogPluginInterceptor.java"
+   checksum="eff556c1b98fd439325047a6e7bfeae5"
+   last-author="lij"
+   committed-rev="3836"
+   text-time="2011-09-24T10:39:41.992000Z"
+   kind="file"
+   committed-date="2011-09-24T10:39:41.992625Z"/>
+<entry
+   name="SqlSessionFactoryBean.java"
+   checksum="5c481feb1f0d9b4dcdf5cd1065a237b8"
+   last-author="lij"
+   committed-rev="3888"
+   text-time="2011-10-30T12:12:37.326000Z"
+   kind="file"
+   committed-date="2011-10-30T12:13:53.444000Z"/>
+<entry
+   name="UpdateLogInterceptor.java"
+   checksum="00ab351e3bccbb2ece3c3e2ecea656c1"
+   last-author="lij"
+   committed-rev="3887"
+   text-time="2011-10-29T08:50:39.569000Z"
+   kind="file"
+   committed-date="2011-10-29T08:50:39.569875Z"/>
+</wc-entries>

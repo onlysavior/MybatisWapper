@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://219.217.42.188/svn/Pandawork"
+   revision="3894"
+   last-author="zhangly"
+   uuid="efd05c5c-f8b9-e84b-be0d-aa91dda4ecef"
+   url="https://219.217.42.188/svn/Pandawork/DevVerTwo/PandaworkCommon/PandaworkCore/branches/pandaworkcore2.0.0/code/src/com/pandawork/core/dao/impl/sql"
+   committed-rev="3867"
+   kind="dir"
+   committed-date="2011-10-17T06:37:46.144000Z"/>
+<entry
+   name="CommonDao.mapper.xml"
+   checksum="1a7f72d36ba9297b22fe848514d3c40b"
+   last-author="zhangly"
+   text-time="2011-10-17T06:37:46.144000Z"
+   committed-rev="3867"
+   kind="file"
+   committed-date="2011-10-17T06:37:46.144000Z"/>
+</wc-entries>

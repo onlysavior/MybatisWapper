@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://219.217.42.188/svn/Pandawork"
+   name=""
+   revision="3894"
+   last-author="lij"
+   url="https://219.217.42.188/svn/Pandawork/DevVerTwo/PandaworkCommon/PandaworkCore/branches/pandaworkcore2.0.0/code/src/com/pandawork/core/search/cfg"
+   uuid="efd05c5c-f8b9-e84b-be0d-aa91dda4ecef"
+   committed-rev="3888"
+   kind="dir"
+   committed-date="2011-10-30T12:13:53.444875Z"/>
+<entry
+   name="ConfigBean.java"
+   checksum="b4c4bc2e0b4d0fb5d52f19e050dca369"
+   last-author="lij"
+   committed-rev="3888"
+   text-time="2011-10-30T11:51:22.514000Z"
+   kind="file"
+   committed-date="2011-10-30T12:13:53.444000Z"/>
+</wc-entries>

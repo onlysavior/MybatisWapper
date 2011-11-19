@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://219.217.42.188/svn/Pandawork"
+   revision="3894"
+   last-author="lij"
+   uuid="efd05c5c-f8b9-e84b-be0d-aa91dda4ecef"
+   url="https://219.217.42.188/svn/Pandawork/DevVerTwo/PandaworkCommon/PandaworkCore/branches/pandaworkcore2.0.0/code/src/com/pandawork/core"
+   committed-rev="3894"
+   kind="dir"
+   committed-date="2011-10-31T08:34:13.460500Z"/>
+<entry
+   name="EncodeConstants.java"
+   checksum="ed1aa3b63241a79ae230323f32474ecc"
+   last-author="Lionel"
+   text-time="2011-03-22T01:00:50.073000Z"
+   committed-rev="1115"
+   kind="file"
+   committed-date="2011-03-22T01:00:50.073500Z"/>
+<entry
+   name="bean"
+   kind="dir"/>
+<entry
+   name="cache"
+   kind="dir"/>
+<entry
+   name="dao"
+   kind="dir"/>
+<entry
+   name="entity"
+   kind="dir"/>
+<entry
+   name="errorAlert"
+   kind="dir"/>
+<entry
+   name="excel"
+   kind="dir"/>
+<entry
+   name="exception"
+   kind="dir"/>
+<entry
+   name="ext"
+   kind="dir"/>
+<entry
+   name="fileUpload"
+   kind="dir"/>
+<entry
+   name="loader"
+   kind="dir"/>
+<entry
+   name="log"
+   kind="dir"/>
+<entry
+   name="net"
+   kind="dir"/>
+<entry
+   name="pdf"
+   kind="dir"/>
+<entry
+   name="report"
+   kind="dir"/>
+<entry
+   name="resource"
+   kind="dir"/>
+<entry
+   name="search"
+   kind="dir"/>
+<entry
+   name="sytem"
+   kind="dir"/>
+<entry
+   name="tuple"
+   kind="dir"/>
+<entry
+   name="util"
+   kind="dir"/>
+<entry
+   name="web"
+   kind="dir"/>
+<entry
+   name="word"
+   kind="dir"/>
+</wc-entries>

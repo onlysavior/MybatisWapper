@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://219.217.42.188/svn/Pandawork"
+   revision="3894"
+   last-author="lij"
+   uuid="efd05c5c-f8b9-e84b-be0d-aa91dda4ecef"
+   url="https://219.217.42.188/svn/Pandawork/DevVerTwo/PandaworkCommon/PandaworkCore/branches/pandaworkcore2.0.0/code/src/com/pandawork/core/util"
+   committed-rev="3888"
+   kind="dir"
+   committed-date="2011-10-30T12:13:53.444875Z"/>
+<entry
+   name="ActionUtil.java"
+   checksum="d819e1938b0649a34e1367ad8062b805"
+   last-author="Lionel"
+   text-time="2011-07-07T02:49:51.206000Z"
+   committed-rev="2889"
+   kind="file"
+   committed-date="2011-07-07T02:49:51.206625Z"/>
+<entry
+   name="ClassLoaderHelper.java"
+   checksum="fff524a566dac103015915fad88e8658"
+   last-author="lij"
+   text-time="2011-10-29T08:50:39.569000Z"
+   committed-rev="3887"
+   kind="file"
+   committed-date="2011-10-29T08:50:39.569875Z"/>
+<entry
+   name="CommonDefaultCheck.java"
+   checksum="ed6cfab30d7e8d687824bba33b4648fe"
+   last-author="Lionel"
+   text-time="2011-03-22T01:00:50.073000Z"
+   committed-rev="1115"
+   kind="file"
+   committed-date="2011-03-22T01:00:50.073500Z"/>
+<entry
+   name="CommonUtil.java"
+   checksum="b29f252d752afd05ec28a5d421717e92"
+   last-author="Lionel"
+   text-time="2011-03-22T01:00:50.073000Z"
+   committed-rev="1115"
+   kind="file"
+   committed-date="2011-03-22T01:00:50.073500Z"/>
+<entry
+   name="CopyOnWriteMap.java"
+   checksum="9c5218c1b39974be5552b40baa2f010f"
+   last-author="Lionel"
+   text-time="2011-04-19T07:19:04.988000Z"
+   committed-rev="1898"
+   kind="file"
+   committed-date="2011-04-19T07:19:04.988097Z"/>
+<entry
+   name="DateUtils.java"
+   checksum="5b3173f9ffb1835c5ab1ea00efa6374b"
+   last-author="Lionel"
+   text-time="2011-03-22T01:00:50.073000Z"
+   committed-rev="1115"
+   kind="file"
+   committed-date="2011-03-22T01:00:50.073500Z"/>
+<entry
+   name="Html2Text.java"
+   checksum="e8dc40f78dd93a7fa2b7056c323ef6a7"
+   last-author="Lionel"
+   text-time="2011-07-21T00:06:03.734000Z"
+   committed-rev="3073"
+   kind="file"
+   committed-date="2011-07-21T00:06:03.734375Z"/>
+<entry
+   name="IOUtil.java"
+   checksum="5b98def30c44a3e0ef7e03c129490deb"
+   last-author="Lionel"
+   text-time="2011-03-22T01:00:50.073000Z"
+   committed-rev="1115"
+   kind="file"
+   committed-date="2011-03-22T01:00:50.073500Z"/>
+<entry
+   name="ImageUtil.java"
+   checksum="080b33c09a7da711e2faf9c743eed284"
+   last-author="Lionel"
+   text-time="2011-03-22T01:00:50.073000Z"
+   committed-rev="1115"
+   kind="file"
+   committed-date="2011-03-22T01:00:50.073500Z"/>
+<entry
+   name="IpUtil.java"
+   checksum="3f94df41f905ab223974fad2b7257df2"
+   last-author="Lionel"
+   text-time="2011-03-22T01:00:50.073000Z"
+   committed-rev="1115"
+   kind="file"
+   committed-date="2011-03-22T01:00:50.073500Z"/>
+<entry
+   name="ObjectUtils.java"
+   checksum="3c68a5af705eefc78eb27cbc094f5763"
+   last-author="Lionel"
+   text-time="2011-03-22T01:00:50.073000Z"
+   committed-rev="1115"
+   kind="file"
+   committed-date="2011-03-22T01:00:50.073500Z"/>
+<entry
+   name="PackageUtil.java"
+   checksum="2e0cf4e277cd6fb5b8328cf2524b223e"
+   last-author="Lionel"
+   text-time="2011-03-22T01:00:50.073000Z"
+   committed-rev="1115"
+   kind="file"
+   committed-date="2011-03-22T01:00:50.073500Z"/>
+<entry
+   name="Pagination.java"
+   checksum="1bcad1f4c2b8c389bc80c6b9ae822227"
+   last-author="Lionel"
+   text-time="2011-03-22T01:00:50.073000Z"
+   committed-rev="1115"
+   kind="file"
+   committed-date="2011-03-22T01:00:50.073500Z"/>
+<entry
+   name="ReflectUtil.java"
+   checksum="66280979da1562d0911f0f3d69c17221"
+   last-author="Lionel"
+   text-time="2011-09-05T02:04:42.344000Z"
+   committed-rev="3794"
+   kind="file"
+   committed-date="2011-09-05T02:04:42.344625Z"/>
+<entry
+   name="ReflectionHelper.java"
+   revision="3902"
+   checksum="410125725a89df570d9a4e48f561aafa"
+   last-author="lij"
+   text-time="2011-11-01T10:49:25.961000Z"
+   committed-rev="3902"
+   kind="file"
+   committed-date="2011-11-01T13:59:02.451000Z"/>
+<entry
+   name="SpringUtil.java"
+   checksum="a883e30033b0024e15d07f5783c2c010"
+   last-author="Lionel"
+   text-time="2011-03-22T01:00:50.073000Z"
+   committed-rev="1115"
+   kind="file"
+   committed-date="2011-03-22T01:00:50.073500Z"/>
+<entry
+   name="StringHelper.java"
+   revision="3902"
+   checksum="0e3fa83cff362d0cff959a00e5153e55"
+   last-author="lij"
+   text-time="2011-11-01T12:07:54.668000Z"
+   committed-rev="3902"
+   kind="file"
+   committed-date="2011-11-01T13:59:02.451000Z"/>
+<entry
+   name="TextUtils.java"
+   checksum="8952dd2d44b33176b6509b6b94c09dac"
+   last-author="Lionel"
+   text-time="2011-03-22T01:00:50.073000Z"
+   committed-rev="1115"
+   kind="file"
+   committed-date="2011-03-22T01:00:50.073500Z"/>
+</wc-entries>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://219.217.42.188/svn/Pandawork"
+   revision="3894"
+   last-author="lij"
+   uuid="efd05c5c-f8b9-e84b-be0d-aa91dda4ecef"
+   url="https://219.217.42.188/svn/Pandawork/DevVerTwo/PandaworkCommon/PandaworkCore/branches/pandaworkcore2.0.0/code/src/com/pandawork/core/search/annotations"
+   committed-rev="3887"
+   kind="dir"
+   committed-date="2011-10-29T08:50:39.569875Z"/>
+<entry
+   name="Analyzer.java"
+   revision="3902"
+   checksum="f326b422eabe0a13b16f66a7b4b50dd7"
+   last-author="lij"
+   text-time="2011-11-01T12:13:08.885000Z"
+   committed-rev="3902"
+   kind="file"
+   committed-date="2011-11-01T13:59:02.451000Z"/>
+<entry
+   name="CalendarBridge.java"
+   revision="3898"
+   checksum="8609b18c62e5e0752952f6f2b9986440"
+   last-author="lij"
+   committed-rev="3898"
+   text-time="2011-10-31T14:58:05.790000Z"
+   kind="file"
+   committed-date="2011-10-31T15:13:15.101000Z"/>
+<entry
+   name="DateBridge.java"
+   revision="3898"
+   checksum="485adb7e805b1103b5c120f63fe56e06"
+   last-author="lij"
+   committed-rev="3898"
+   text-time="2011-10-31T14:59:29.582000Z"
+   kind="file"
+   committed-date="2011-10-31T15:13:15.101000Z"/>
+<entry
+   name="DocumentId.java"
+   checksum="806eb4c43df7f4df94d9e78cf88def32"
+   last-author="lij"
+   text-time="2011-10-29T08:50:39.569000Z"
+   committed-rev="3887"
+   kind="file"
+   committed-date="2011-10-29T08:50:39.569875Z"/>
+<entry
+   name="Field.java"
+   checksum="525de91ca4f01840b4a7b8b917eef36d"
+   last-author="lij"
+   text-time="2011-10-29T08:50:39.569000Z"
+   committed-rev="3887"
+   kind="file"
+   committed-date="2011-10-29T08:50:39.569875Z"/>
+<entry
+   name="FieldBridge.java"
+   checksum="91b9952a7b40f4ae27b113daf42bb213"
+   last-author="lij"
+   text-time="2011-10-29T08:50:39.569000Z"
+   committed-rev="3887"
+   kind="file"
+   committed-date="2011-10-29T08:50:39.569875Z"/>
+<entry
+   name="Index.java"
+   checksum="78309207d5070323b14371ec2f394f5a"
+   last-author="lij"
+   text-time="2011-10-29T08:50:39.569000Z"
+   committed-rev="3887"
+   kind="file"
+   committed-date="2011-10-29T08:50:39.569875Z"/>
+<entry
+   name="IndexEum.java"
+   checksum="242329f0feadfc2965791016f5b1ccec"
+   last-author="lij"
+   text-time="2011-10-29T08:50:39.569000Z"
+   committed-rev="3887"
+   kind="file"
+   committed-date="2011-10-29T08:50:39.569875Z"/>
+<entry
+   name="NumericField.java"
+   checksum="4a4233aa7ef0acba223c4f58717139ab"
+   last-author="lij"
+   text-time="2011-10-29T08:50:39.569000Z"
+   committed-rev="3887"
+   kind="file"
+   committed-date="2011-10-29T08:50:39.569875Z"/>
+<entry
+   name="Parameter.java"
+   checksum="3d933d9b78192806ffe7f3266a141fa7"
+   last-author="lij"
+   text-time="2011-10-29T08:50:39.569000Z"
+   committed-rev="3887"
+   kind="file"
+   committed-date="2011-10-29T08:50:39.569875Z"/>
+<entry
+   name="Resolution.java"
+   revision="3897"
+   checksum="a5f0f6e2ca33cc076c5f2fb860e26741"
+   last-author="lij"
+   text-time="2011-10-31T12:41:21.844000Z"
+   committed-rev="3897"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+<entry
+   name="StoreEum.java"
+   checksum="17dba63a49b8b50d38c568f84e68f21a"
+   last-author="lij"
+   text-time="2011-10-29T08:50:39.569000Z"
+   committed-rev="3887"
+   kind="file"
+   committed-date="2011-10-29T08:50:39.569875Z"/>
+</wc-entries>

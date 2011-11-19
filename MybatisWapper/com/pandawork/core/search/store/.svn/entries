@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://219.217.42.188/svn/Pandawork"
+   revision="3894"
+   last-author="lij"
+   uuid="efd05c5c-f8b9-e84b-be0d-aa91dda4ecef"
+   url="https://219.217.42.188/svn/Pandawork/DevVerTwo/PandaworkCommon/PandaworkCore/branches/pandaworkcore2.0.0/code/src/com/pandawork/core/search/store"
+   committed-rev="3887"
+   kind="dir"
+   committed-date="2011-10-29T08:50:39.569875Z"/>
+<entry
+   name="DirectoryProvider.java"
+   checksum="f895edef9a20bc59ba714678153f7060"
+   last-author="lij"
+   text-time="2011-10-29T08:50:39.569000Z"
+   committed-rev="3887"
+   kind="file"
+   committed-date="2011-10-29T08:50:39.569875Z"/>
+</wc-entries>

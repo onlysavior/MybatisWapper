@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://219.217.42.188/svn/Pandawork"
+   name=""
+   revision="3894"
+   last-author="lij"
+   url="https://219.217.42.188/svn/Pandawork/DevVerTwo/PandaworkCommon/PandaworkCore/branches/pandaworkcore2.0.0/code/src/com/pandawork/core/search/bridge/builtin"
+   uuid="efd05c5c-f8b9-e84b-be0d-aa91dda4ecef"
+   committed-rev="3894"
+   kind="dir"
+   committed-date="2011-10-31T08:34:13.460500Z"/>
+<entry
+   name="BigDecimalBridge.java"
+   revision="3897"
+   checksum="9c0f3683366ec2d6f01b740beeeeddc3"
+   last-author="lij"
+   text-time="2011-10-31T13:07:16.844000Z"
+   committed-rev="3897"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+<entry
+   name="BigIntegerBridge.java"
+   revision="3897"
+   checksum="4fd42fa65c31f0ab545d099fbb1c2889"
+   last-author="lij"
+   text-time="2011-10-31T13:07:58.372000Z"
+   committed-rev="3897"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+<entry
+   name="BooleanBridge.java"
+   revision="3897"
+   checksum="742be563c55056d810948eb25455788e"
+   last-author="lij"
+   text-time="2011-10-31T12:40:26.595000Z"
+   committed-rev="3897"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+<entry
+   name="CalendarBridge.java"
+   revision="3897"
+   checksum="67d82c7fae96c69df43644c421bfff97"
+   last-author="lij"
+   text-time="2011-10-31T12:50:21.449000Z"
+   committed-rev="3897"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+<entry
+   name="CharacterBridge.java"
+   revision="3897"
+   checksum="962fba062179047d0fd2d4af4cc4f6b3"
+   last-author="lij"
+   text-time="2011-10-31T12:51:14.296000Z"
+   committed-rev="3897"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+<entry
+   name="ClassBridge.java"
+   revision="3897"
+   checksum="b89f247715dacf10ef95f886f5c6d196"
+   last-author="lij"
+   text-time="2011-10-31T12:53:23.735000Z"
+   committed-rev="3897"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+<entry
+   name="DateBridge.java"
+   revision="3897"
+   checksum="9f7ec0f9895a414c89db4a2f6c75e96e"
+   last-author="lij"
+   text-time="2011-10-31T13:00:37.990000Z"
+   committed-rev="3897"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+<entry
+   name="DateResolutionUtil.java"
+   revision="3897"
+   checksum="ac4572776609912431a556e8d6082ec1"
+   last-author="lij"
+   text-time="2011-10-31T12:47:09.279000Z"
+   committed-rev="3897"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+<entry
+   name="DoubleBridge.java"
+   revision="3897"
+   checksum="000f58aaabc7d1804c916590bbce6771"
+   last-author="lij"
+   text-time="2011-10-31T13:08:38.620000Z"
+   committed-rev="3897"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+<entry
+   name="DoubleNumericFieldBridge.java"
+   checksum="5a45f2b72c58ddfa0267b7c901cfa96e"
+   last-author="lij"
+   committed-rev="3894"
+   text-time="2011-10-31T08:34:13.460000Z"
+   kind="file"
+   committed-date="2011-10-31T08:34:13.460500Z"/>
+<entry
+   name="EnumBridge.java"
+   revision="3897"
+   checksum="75b59d60204eae1b239c2845d5f71391"
+   last-author="lij"
+   text-time="2011-10-31T13:02:52.587000Z"
+   committed-rev="3897"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+<entry
+   name="FloatBridge.java"
+   revision="3897"
+   checksum="0363371ac8ed22e38be1a47cf61715e6"
+   last-author="lij"
+   text-time="2011-10-31T13:09:12.316000Z"
+   committed-rev="3897"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+<entry
+   name="FloatNumericFieldBridge.java"
+   checksum="0dccaaa4bb0413e77f07439e90b38633"
+   last-author="lij"
+   committed-rev="3894"
+   text-time="2011-10-31T08:34:13.460000Z"
+   kind="file"
+   committed-date="2011-10-31T08:34:13.460500Z"/>
+<entry
+   name="IntegerBridge.java"
+   revision="3897"
+   checksum="380ea4d0a85db83f80f42601cad99aa3"
+   last-author="lij"
+   text-time="2011-10-31T13:12:45.251000Z"
+   committed-rev="3897"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+<entry
+   name="IntegerNumericFieldBridge.java"
+   checksum="171445fb89d11dfde50126f2fe32279a"
+   last-author="lij"
+   committed-rev="3894"
+   text-time="2011-10-31T08:34:13.460000Z"
+   kind="file"
+   committed-date="2011-10-31T08:34:13.460500Z"/>
+<entry
+   name="LongBridge.java"
+   revision="3897"
+   checksum="e9f380f9735de04a30e0b07cffb5b515"
+   last-author="lij"
+   text-time="2011-10-31T13:13:23.973000Z"
+   committed-rev="3897"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+<entry
+   name="LongNumericFieldBridge.java"
+   checksum="c122610cf2ed66db08b8500fbff00d1d"
+   last-author="lij"
+   committed-rev="3894"
+   text-time="2011-10-31T08:34:13.460000Z"
+   kind="file"
+   committed-date="2011-10-31T08:34:13.460500Z"/>
+<entry
+   name="NumberBridge.java"
+   revision="3897"
+   checksum="924bb27afc9568de6923954d3527045e"
+   last-author="lij"
+   text-time="2011-10-31T12:37:26.824000Z"
+   committed-rev="3897"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+<entry
+   name="NumericFieldBridge.java"
+   checksum="b0f7e35caf0d6e3f878d657b89a709c4"
+   last-author="lij"
+   committed-rev="3894"
+   text-time="2011-10-31T08:34:13.460000Z"
+   kind="file"
+   committed-date="2011-10-31T08:34:13.460500Z"/>
+<entry
+   name="ShortBridge.java"
+   revision="3897"
+   checksum="ac7f2aeb3bdee606c5cf2d8a2efc6e04"
+   last-author="lij"
+   text-time="2011-10-31T13:20:19.920000Z"
+   committed-rev="3897"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+<entry
+   name="UriBridge.java"
+   revision="3897"
+   checksum="96e1525ad3a29c12987f5ca7d423d93d"
+   last-author="lij"
+   text-time="2011-10-31T13:26:05.654000Z"
+   committed-rev="3897"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+<entry
+   name="UrlBridge.java"
+   revision="3897"
+   checksum="c66df49eb28f76e6375cc02470a85a4f"
+   last-author="lij"
+   text-time="2011-10-31T13:26:56.146000Z"
+   committed-rev="3897"
+   kind="file"
+   committed-date="2011-10-31T13:36:01.288000Z"/>
+</wc-entries>
