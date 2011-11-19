@@ -1,0 +1,3 @@
+this project is part of com.pandawork.core,to make mybatis convience to use
+provide two function: to use mybatis in a way more like Hibernate and to 
+provide a way to use luence like Hibernate Search
