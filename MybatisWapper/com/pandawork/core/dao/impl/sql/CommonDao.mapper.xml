@@ -71,4 +71,17 @@
 	<select id="getLastestId" parameterType="map" resultType="Integer">
 		select max(${idName}) from ${tableName}
 	</select>
+	
+	<select id="lazyLoad" parameterType="map" resultType = "Object">
+		select `${properyName}` from `${tableName}` where `${idName}` = #{id}
+	</select>
+	
+	<select id="queryInLazyWay" parameterType="map" resultType="map">
+		select 
+		<foreach collection="fieldNames" item="name" separator=",">
+			`${name}`
+		</foreach>
+		from `${tableName}` 
+		where `${idName}` = #{id}
+	</select>
 </mapper>

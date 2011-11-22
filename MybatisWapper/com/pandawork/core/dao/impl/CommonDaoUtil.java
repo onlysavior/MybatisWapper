@@ -212,7 +212,7 @@ public class CommonDaoUtil {
 			String... properties) throws Exception {
 		boolean propertiesEmpty = true;
 		List<String> propertyList = null;
-		if (properties.length > 0 && properties != null) {
+		if (properties != null && properties.length > 0) {
 			propertiesEmpty = false;
 			propertyList = Arrays.asList(properties);
 		}
@@ -238,6 +238,19 @@ public class CommonDaoUtil {
 		}
 
 		return keyValueList.size() > 0 ? keyValueList : null;
+	}
+	
+	public static List<String> listFieldNamesExcludeGiven(Class<?> clazz,List<String> excludeFieldList){
+		Field[] fields = clazz.getDeclaredFields();
+		
+		List<String> resultList = new ArrayList<String>();
+		for(Field field :fields){
+			if(excludeFieldList.contains(field.getName()) || field.getName().equals("serialVersionUID")){
+				continue;
+			}
+			resultList.add(field.getName());
+		}
+		return resultList;
 	}
 
 	/**
