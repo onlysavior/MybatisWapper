@@ -130,4 +130,8 @@ public interface CommonDao {
     public <T> void fullTextInsert(T obj) throws Exception; 
     public <T> void fullTextUpdate(T obj) throws Exception;
     public <T> void fullTextDelete(T obj) throws Exception;
+    
+    //以下是lazy load 的方法
+    public <T,I extends Serializable> T queryInLazyWay(Class<T> clazz,I id,List<String> excludeFieldList) throws Exception;
+    public <T> Object lazyLoad(T obj,String propertyName) throws Exception;
 }
