@@ -82,7 +82,7 @@ public class IBQuery {
 			List<EntityInfo> infos = new ArrayList<EntityInfo>( size );
 			DocumentExtractor extractor = buildDocumentExtractor( searcher, queryHits, first, max );
 			
-			for ( int index = first; index <= max; index++ ) {
+			for ( int index = first; index < max; index++ ) {
 				infos.add( extractor.extract( index ) );
 			}
 			return infos;

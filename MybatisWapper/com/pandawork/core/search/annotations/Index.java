@@ -1,5 +1,6 @@
 package com.pandawork.core.search.annotations;
 
+import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
@@ -13,10 +14,10 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * @author Administrator
  * 
  */
-@Target({ FIELD, METHOD })
+@Target({ ElementType.METHOD, ElementType.FIELD,ElementType.TYPE })
 @Retention(RUNTIME)
 public @interface Index {
-	String name();
+	String name() default "";
 
 	String[] columnNames() default {};
 	

@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.FieldSelector;
+import org.apache.lucene.search.Collector;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.Sort;
 import org.apache.lucene.search.TopDocs;
@@ -87,14 +88,20 @@ public class QueryHits {
 
 		final TopDocsCollector<?> topDocCollector;
 		final TotalHitCountCollector hitCountCollector;
+		Collector collector = null;
 		if ( maxDocs != 0 ) {
 			topDocCollector = createTopDocCollector( maxDocs, weight );
 			hitCountCollector = null;
+			collector = topDocCollector;
 		}
 		else {
 			topDocCollector = null;
 			hitCountCollector = new TotalHitCountCollector();
+			collector = hitCountCollector;
 		}
+		
+		//important TODO filter
+		searcher.getSearcher().search( weight, null, collector );
 		
 		if ( maxDocs != 0 ) {
 			this.topDocs = topDocCollector.topDocs();

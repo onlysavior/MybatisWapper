@@ -1,8 +1,10 @@
 package com.pandawork.core.search.backend;
 
+import java.io.IOException;
 import java.io.Serializable;
 
 import org.apache.lucene.document.Document;
+import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.IndexWriter;
 
 import com.pandawork.core.search.cfg.ConfigBean;
@@ -37,6 +39,14 @@ public abstract class LuceneWork implements Serializable {
 	}
 	
 	public abstract void performWork(IndexWriter indexWriter);
+	
+	public void closeWriter(IndexWriter indexWriter){
+		try {
+			indexWriter.close();
+		} catch (CorruptIndexException e) {
+		} catch (IOException e) {
+		}
+	}
 	
 	public boolean isBatch() {
 		return batch;

@@ -52,6 +52,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
+import com.pandawork.core.dao.cfg.Env;
 import com.pandawork.core.search.cfg.ConfigBean;
 import com.pandawork.core.search.plugin.UpdateLuceneIntercepter;
 
@@ -329,6 +330,9 @@ public class SqlSessionFactoryBean implements FactoryBean<SqlSessionFactory>, In
                     this.logger.debug("Scanned package: '" + packageToScan + "' for aliases");
                 }
             }
+            
+            //DAO层扫描
+            Env.configure(typeAliasPackageArray);
         }
 
         if (!ObjectUtils.isEmpty(this.typeAliases)) {
@@ -338,6 +342,7 @@ public class SqlSessionFactoryBean implements FactoryBean<SqlSessionFactory>, In
                     this.logger.debug("Registered type alias: '" + typeAlias + "'");
                 }
             }
+            
         }
 
         if (!ObjectUtils.isEmpty(this.plugins)) {
@@ -349,7 +354,11 @@ public class SqlSessionFactoryBean implements FactoryBean<SqlSessionFactory>, In
             }
         }
         // 添加系统默认拦截器
-        configuration.addInterceptor(new SQLLogPluginInterceptor());
+//        configuration.addInterceptor(new SQLLogPluginInterceptor());
+        configuration.addInterceptor(new QueryLogIntercepter());
+        configuration.addInterceptor(new UpdateLuceneIntercepter());
+        // 添加懒加载需要的拦截器
+        //configuration.addInterceptor(context.getBean(QueryLogIntercepter.class));
         if (StringUtils.hasLength(this.typeHandlersPackage)) {
             String[] typeHandlersPackageArray = StringUtils.tokenizeToStringArray(this.typeHandlersPackage, 
                 ConfigurableApplicationContext.CONFIG_LOCATION_DELIMITERS);
@@ -359,6 +368,7 @@ public class SqlSessionFactoryBean implements FactoryBean<SqlSessionFactory>, In
                     this.logger.debug("Scanned package: '" + packageToScan + "' for type handlers");
                 }
             }
+            
         }
         
         if (!ObjectUtils.isEmpty(this.typeHandlers)) {

@@ -66,7 +66,7 @@ public abstract class ReflectionHelper {
 	}
 
 	public static String getAttributeName(Member member, String name) {
-		return StringHelper.isEmpty(name) ? name : member.getName();
+		return !StringHelper.isEmpty(name) ? name : member.getName();
 	}
 
 	public static void setAccessible(Member member) {

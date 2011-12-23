@@ -52,6 +52,8 @@ public class AddLuceneWork extends LuceneWork implements Serializable {
 			indexWriter.addDocument(getDocument(), analyzer);
 		}catch(IOException e){
 			throw new RuntimeException("不能加入索引");
+		}finally{
+			closeWriter(indexWriter);
 		}
 	}
 }

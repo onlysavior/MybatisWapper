@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.pandawork.core.dao.AbstractBaseDao;
 import com.pandawork.core.dao.CommonDao;
+import com.pandawork.core.dao.cfg.Env;
 import com.pandawork.core.entity.AbstractEntity;
 import com.pandawork.core.entity.EntityProxy;
 import com.pandawork.core.search.spi.SearchFacade;
@@ -43,10 +44,10 @@ public class CommonDefaultDao extends AbstractBaseDao implements CommonDao {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public <T> void delete(T obj) throws Exception {
 		FieldPair idPair = CommonDaoUtil.getPrimKey(obj, obj.getClass());
-		String idName = idPair.getField().getName();
+		String idName = Env.getIdName(obj.getClass());
 		Object idValue = CommonDaoUtil.readValue(obj, idPair);
 
-		String tableName = CommonDaoUtil.getTableName(obj.getClass());
+		String tableName = Env.getTableName(obj.getClass());
 
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("tableName", tableName);
@@ -69,7 +70,7 @@ public class CommonDefaultDao extends AbstractBaseDao implements CommonDao {
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public <T> void insert(T obj) throws Exception {
-		String tableName = CommonDaoUtil.getTableName(obj.getClass());
+		String tableName = Env.getTableName(obj.getClass());
 		Map<String, Object> param = new HashMap<String, Object>();
 
 		List<KeyValuePair> keyValuePairs = CommonDaoUtil.listKeyValuePair(obj);
@@ -81,9 +82,9 @@ public class CommonDefaultDao extends AbstractBaseDao implements CommonDao {
 
 	@Transactional(propagation = Propagation.REQUIRED)
 	public <T> Serializable insertAndReturn(T obj) throws Exception {
-		String tableName = CommonDaoUtil.getTableName(obj.getClass());
+		String tableName = Env.getTableName(obj.getClass());
 		FieldPair idPair = CommonDaoUtil.getPrimKey(obj, obj.getClass());
-		String idName = idPair.getField().getName();
+		String idName = Env.getIdName(obj.getClass());
 
 		Map<String, Object> param = new HashMap<String, Object>();
 
@@ -104,7 +105,7 @@ public class CommonDefaultDao extends AbstractBaseDao implements CommonDao {
 	public <T> void insertAll(Collection<T> objs) throws Exception {
 		// 批量插入
 		T obj = objs.iterator().next();
-		String tableName = CommonDaoUtil.getTableName(obj.getClass());
+		String tableName = Env.getTableName(obj.getClass());
 		List<String> fieldNames = new ArrayList<String>();
 		List<KeyValuePair> fields = CommonDaoUtil.listKeyValuePair(obj);
 		for (KeyValuePair fp : fields) {
@@ -141,7 +142,7 @@ public class CommonDefaultDao extends AbstractBaseDao implements CommonDao {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public <T> void update(T obj) throws Exception {
 		FieldPair idPair = CommonDaoUtil.getPrimKey(obj, obj.getClass());
-		String idName = idPair.getField().getName();
+		String idName = Env.getIdName(obj.getClass());
 		Object idValue = CommonDaoUtil.readValue(obj, idPair);
 		String tableName = CommonDaoUtil.getTableName(obj.getClass());
 
@@ -159,7 +160,7 @@ public class CommonDefaultDao extends AbstractBaseDao implements CommonDao {
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public <T> void saveOrUpdate(T obj) throws Exception {
-		String tableName = CommonDaoUtil.getTableName(obj.getClass());
+		String tableName = Env.getTableName(obj.getClass());
 		Map<String, Object> param = new HashMap<String, Object>();
 
 		List<KeyValuePair> keyValuePairs = CommonDaoUtil.listKeyValuePair(obj,
@@ -174,8 +175,8 @@ public class CommonDefaultDao extends AbstractBaseDao implements CommonDao {
 	@Override
 	public <T, I extends Serializable> T queryById(Class<T> clazz, I id)
 			throws Exception {
-		String idName = CommonDaoUtil.getPrimKeyName(clazz);
-		String tableName = CommonDaoUtil.getTableName(clazz);
+		String idName = Env.getIdName(clazz);
+		String tableName = Env.getTableName(clazz);
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("id", id);
 		param.put("tableName", tableName);
@@ -210,9 +211,9 @@ public class CommonDefaultDao extends AbstractBaseDao implements CommonDao {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public <T> void updateFieldsById(T obj, String... fields) throws Exception {
 		FieldPair idPair = CommonDaoUtil.getPrimKey(obj, obj.getClass());
-		String idName = idPair.getField().getName();
+		String idName = Env.getIdName(obj.getClass());
 		Object idValue = CommonDaoUtil.readValue(obj, idPair);
-		String tableName = CommonDaoUtil.getTableName(obj.getClass());
+		String tableName = Env.getTableName(obj.getClass());
 
 		List<KeyValuePair> keyValuePairs = CommonDaoUtil.listKeyValuePair(obj,
 				obj.getClass(), false, fields);
@@ -263,11 +264,11 @@ public class CommonDefaultDao extends AbstractBaseDao implements CommonDao {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public <T, I extends Serializable> T queryInLazyWay(Class<T> clazz, I id,
 			List<String> excludeFieldList) throws Exception {
-		EntityProxy.setCommonDao(this);
-		EntityProxy<T> proxy = new EntityProxy<T>(excludeFieldList);
+		EntityProxy proxy = new EntityProxy(excludeFieldList);
+		proxy.setCommonDao(this);
 
-		String tableName = CommonDaoUtil.getTableName(clazz);
-		String idName = CommonDaoUtil.getPrimKeyName(clazz);
+		String tableName = Env.getTableName(clazz);
+		String idName = Env.getIdName(clazz);
 
 		List<String> fieldNames = CommonDaoUtil.listFieldNamesExcludeGiven(
 				clazz, excludeFieldList);
@@ -291,9 +292,9 @@ public class CommonDefaultDao extends AbstractBaseDao implements CommonDao {
 	@Override
 	public <T> Object lazyLoad(T obj, String propertyName) throws Exception {
 		FieldPair idPair = CommonDaoUtil.getPrimKey(obj, obj.getClass());
-		String idName = idPair.getField().getName();
+		String idName = Env.getIdName(obj.getClass());
 		Object idValue = CommonDaoUtil.readValue(obj, idPair);
-		String tableName = CommonDaoUtil.getTableName(obj.getClass());
+		String tableName = Env.getTableName(obj.getClass());
 
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("tableName", tableName);

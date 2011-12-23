@@ -2,6 +2,7 @@ package com.pandawork.core.search.bridge;
 
 import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Member;
+import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.net.URI;
@@ -144,7 +145,13 @@ public final class BridgeFactory {
 		}
 		else {
 			//find in built-ins
-			Class<?> returnType = member.getClass();
+//			Class<?> returnType = member.getClass().getComponentType();
+			Class<?> returnType = null;
+			if(member instanceof java.lang.reflect.Field){
+				returnType = ((java.lang.reflect.Field)member).getType();
+			}else{
+				returnType = ((Method)member).getReturnType();
+			}
 			bridge = builtInBridges.get( returnType.getName() );
 			if ( bridge == null && returnType.isEnum() ) {
 				//we return one enum type bridge instance per property as it is customized per ReturnType
@@ -153,9 +160,9 @@ public final class BridgeFactory {
 				bridge = new TwoWayString2FieldBridgeAdaptor( enumBridge );
 			}
 		}
-		if ( bridge == null ) {
-			throw new RuntimeException( "Unable to guess FieldBridge for " + member.getName() );
-		}
+//		if ( bridge == null && retur) {
+//			throw new RuntimeException( "Unable to guess FieldBridge for " + member.getName() );
+//		}
 		return bridge;
 	}
 	

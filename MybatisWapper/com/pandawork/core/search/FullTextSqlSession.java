@@ -36,7 +36,7 @@ public class FullTextSqlSession {
 		
 		this.query = new IBQuery().luceneQuery(luceneQuery).targetedEntities(classes);
 		
-		if(page == null){
+		if(page != null){
 			this.query = this.query.firstResult(page.getCurrentFristPosition()).maxResults(page.getPageSize());
 		}
 		

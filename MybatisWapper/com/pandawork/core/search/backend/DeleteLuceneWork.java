@@ -42,6 +42,8 @@ public class DeleteLuceneWork extends LuceneWork implements Serializable {
 		catch ( Exception e ) {
 			String message = "删除不了 " + entityClazz + "#" + id + "";
 			throw new RuntimeException( message, e );
+		}finally{
+			closeWriter(indexWriter);
 		}
 	}
 }

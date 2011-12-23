@@ -19,6 +19,8 @@ public class OptimizeLuceneWork extends LuceneWork implements Serializable {
 			indexWriter.optimize();
 		} catch (Exception e){
 			throw new RuntimeException("不能优化"+entityClazz);
+		}finally{
+			closeWriter(indexWriter);
 		}
 	}
 }

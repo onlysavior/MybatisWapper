@@ -1,9 +1,13 @@
 package com.pandawork.core.search.cfg;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Queue;
 import java.util.Set;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -12,8 +16,11 @@ import javax.persistence.Table;
 
 import net.paoding.analysis.analyzer.PaodingAnalyzer;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.SimpleAnalyzer;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.LogByteSizeMergePolicy;
@@ -24,6 +31,8 @@ import org.apache.lucene.util.Version;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanNameGenerator;
@@ -40,19 +49,22 @@ import org.springframework.util.Assert;
 import com.pandawork.core.entity.AbstractEntity;
 import com.pandawork.core.search.annotations.Index;
 import com.pandawork.core.search.engine.DocumentBuilderIndexedEntity;
+import com.pandawork.core.search.exception.SearchException;
 import com.pandawork.core.search.reader.NotSharedReaderProvider;
 import com.pandawork.core.search.store.DirectoryProvider;
+import com.pandawork.core.search.store.impl.FSDirectoryProvider;
 import com.pandawork.core.util.ReflectionHelper;
-import com.sun.xml.internal.txw2.IllegalAnnotationException;
 
 /**
  * Search 启动 <P> ...T_T....
  * @author Administrator
  *
  */
-public class ConfigBean implements ApplicationContextAware{
+public class ConfigBean implements ApplicationContextAware,BeanFactoryPostProcessor{
 	
 	private String basePath;
+	
+	private String luncenePropertyHome;
 	
 	private DirectoryProvider<?> directory;
 	
@@ -70,14 +82,16 @@ public class ConfigBean implements ApplicationContextAware{
 	
 	private ApplicationContext applicationContext;
 	
-	private SearchClassPathScanner scanner = new SearchClassPathScanner((BeanDefinitionRegistry) applicationContext, false);
+	private SearchClassPathScanner scanner;
 	
-	private static ConfigBean INSTANSE = new ConfigBean();
+	private volatile static ConfigBean INSTANSE;
 	
 	private NotSharedReaderProvider  reader;
+	
+	private Properties lunceneProperty;
 
 	{
-		scanner.addIncludeFilter(new AnnotationTypeFilter(Index.class));
+//		scanner.addIncludeFilter(new AnnotationTypeFilter(Index.class));
 		reader = new NotSharedReaderProvider();
 	}
 	
@@ -85,13 +99,13 @@ public class ConfigBean implements ApplicationContextAware{
 	
 	public void initIbatisSearch(){
 		Assert.notNull(basePath, "basePath 不能为空");
-		scanner.scan(basePath);
 		
 		if(!"".equals(defaultAnalyzerName)){
 			try {
 				defaultAnalyzer = (Analyzer) (ReflectionHelper.classForName(defaultAnalyzerName)).newInstance();
 			} catch (Exception e) {
 				defaultAnalyzer = new PaodingAnalyzer();
+//				defaultAnalyzer = new StandardAnalyzer(Version.LUCENE_31);
 			}
 		}
 		
@@ -102,9 +116,40 @@ public class ConfigBean implements ApplicationContextAware{
 				defaultSimilarity = new DefaultSimilarity();
 			}
 		}
+		
+		if(StringUtils.isEmpty(luncenePropertyHome)){
+			throw new SearchException("沒有配置Luncene相关的Property");
+		}else{
+			if(luncenePropertyHome.startsWith("classpath:")){
+				luncenePropertyHome = luncenePropertyHome.substring("classpath:".length());
+				//URL url = getClass().getResource(luncenePropertyHome);
+				URL url = getClass().getClassLoader().getResource(luncenePropertyHome);
+				InputStream in;
+				try {
+					in = url.openStream();
+					if(lunceneProperty == null){
+						lunceneProperty = new Properties();
+					}
+					lunceneProperty.load(in);
+				} catch (IOException e) {
+					throw new SearchException("无法加载相关Property"+url.getPath());
+				}
+			}else{
+				throw new SearchException("暂不支持classpath以外的其他资源加载");
+			}
+		}
+		
+		scanner.scan(basePath);
 	}
 	
 	public static ConfigBean getInstanse(){
+		if(INSTANSE == null){
+			synchronized (ConfigBean.class) {
+				if(INSTANSE == null){
+					INSTANSE = new ConfigBean();
+				}
+			}
+		}
 		return INSTANSE;
 	}
 	
@@ -160,7 +205,12 @@ public class ConfigBean implements ApplicationContextAware{
 	}
 
 	public DirectoryProvider<?> getDirectory() {
-		return directory;
+		//ugly implement
+		if(this.directory == null){
+			this.directory = new FSDirectoryProvider();
+			this.directory.initialize("FSDirectoryProvider", lunceneProperty, getInstanse());
+		}
+		return this.directory;
 	}
 
 	public void setDirectory(DirectoryProvider<?> directory) {
@@ -211,7 +261,7 @@ public class ConfigBean implements ApplicationContextAware{
 				//TODO 这个可能出错
 				writer = createNewIndexWriter(ConfigBean.getInstanse().getDirectory(),batchWriterConfig);
 			} catch (IOException e) {
-				writer = null;
+				throw new SearchException(e);
 			}
 			return writer;
 		} 
@@ -244,7 +294,7 @@ public class ConfigBean implements ApplicationContextAware{
 			this.registry = registry;
 		}
 		
-		@SuppressWarnings("unchecked")
+		@SuppressWarnings({ "unchecked", "restriction" })
 		public int scan(String... basePackages) {
 			Assert.notEmpty(basePackages, "不能为空");
 			int beanCountAtScanStart = this.registry.getBeanDefinitionCount();
@@ -252,13 +302,18 @@ public class ConfigBean implements ApplicationContextAware{
 			Set<BeanDefinitionHolder> resources = doScan(basePackages);
 
 			for(BeanDefinitionHolder bdh:resources){
-				Class<?> clazz = bdh.getClass();
+				String className = bdh.getBeanDefinition().getBeanClassName();
+				Class<?> clazz;
+				try {
+					clazz = Class.forName(className);
+				} catch (ClassNotFoundException e) {
+					throw new SearchException("实体类找不到"+className);
+				}
 				Table tableAnn = (Table) clazz.getAnnotation(Table.class);
 				if(tableAnn == null){
-					throw new IllegalAnnotationException("没有 @Table 注解");
+					throw new SearchException("没有 @Table 注解");
 				}
-				@SuppressWarnings("rawtypes")
-				DocumentBuilderIndexedEntity<?> indexEntityBuilder = new DocumentBuilderIndexedEntity(clazz, ConfigBean.INSTANSE);
+				DocumentBuilderIndexedEntity<?> indexEntityBuilder = new DocumentBuilderIndexedEntity(clazz, ConfigBean.getInstanse());
 				BuildContext.class2IndexedEntites.put(clazz, indexEntityBuilder);
 				BuildContext.class2TableName.put(clazz, tableAnn.name());
 			}
@@ -286,5 +341,20 @@ public class ConfigBean implements ApplicationContextAware{
 			}
 			return beanDefinitions;
 		}
+	}
+
+	@Override
+	public void postProcessBeanFactory(
+			ConfigurableListableBeanFactory beanFactory) throws BeansException {
+		scanner = new SearchClassPathScanner((BeanDefinitionRegistry) beanFactory, false);
+		scanner.addIncludeFilter(new AnnotationTypeFilter(Index.class));
+	}
+
+	public void setLuncenePropertyHome(String luncenePropertyHome) {
+		this.luncenePropertyHome = luncenePropertyHome;
+	}
+
+	public String getLuncenePropertyHome() {
+		return luncenePropertyHome;
 	}
 }

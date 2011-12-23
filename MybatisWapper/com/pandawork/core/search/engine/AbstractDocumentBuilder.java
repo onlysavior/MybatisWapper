@@ -8,6 +8,7 @@ import javax.persistence.Table;
 
 import net.paoding.analysis.analyzer.PaodingAnalyzer;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.search.Similarity;
@@ -65,9 +66,11 @@ public abstract class AbstractDocumentBuilder<T> {
 		if (this.similarity == null) {
 			this.similarity = configBean.getDefaultSimilarity();
 		}
-
 	}
 
+	abstract void documentBuilderSpecificChecks(Member member,
+			PropertyMeta propertiesMetadata, ConfigBean context);
+	
 	private String getTableNameFormAnnotion(Class<?> clazz) {
 		Table ann = clazz.getAnnotation(Table.class);
 		if (ann == null) {
@@ -79,10 +82,10 @@ public abstract class AbstractDocumentBuilder<T> {
 	private void initializeClass(Class<?> beanClass, PropertyMeta meta,
 			ConfigBean cfg) {
 		initializeClassLevelAnnotations(beanClass, meta, cfg);
-
 		java.lang.reflect.Field[] fields = beanClass.getDeclaredFields();
 		for (java.lang.reflect.Field field : fields) {
 			initializeMemberLevelAnnotations(field, meta, cfg);
+			documentBuilderSpecificChecks(field,meta,cfg);
 		}
 	}
 
@@ -122,9 +125,9 @@ public abstract class AbstractDocumentBuilder<T> {
 		if (fieldAnn != null) {
 			bindFieldAnnotation(field, meta, cfg, documentId, fieldAnn,numericFieldAnn);
 		}
-		if ((fieldAnn == null && documentId == null)) {
-			throw new IllegalArgumentException("没有实体域的注解！");
-		}
+//		if ((fieldAnn == null && documentId == null)) {
+//			throw new IllegalArgumentException("没有实体域的注解！");
+//		}
 	}
 
  	private void bindFieldAnnotation(java.lang.reflect.Field field,
@@ -134,7 +137,7 @@ public abstract class AbstractDocumentBuilder<T> {
 		
 		field.setAccessible(true);
 		meta.fieldGetter.add(field);
-		String fieldName = fieldAnn.name() == null ? field.getName() : fieldAnn.name();
+		String fieldName = StringUtils.isEmpty(fieldAnn.name()) ? field.getName() : fieldAnn.name();
 		meta.fieldNames.add(fieldName);
 		meta.fieldIndex.add(getIndex(fieldAnn.index()));
 		meta.fieldStore.add(fieldAnn.store());
@@ -189,7 +192,6 @@ public abstract class AbstractDocumentBuilder<T> {
 		return numericFieldAnn == null ? 4 : numericFieldAnn.precisionStep();
 	}
 	
-	/****************setter and getter*******************/
 	public PropertyMeta getMetadata() {
 		return meta;
 	}
@@ -213,7 +215,10 @@ public abstract class AbstractDocumentBuilder<T> {
 
 
 		protected LuceneOptions getClassLuceneOptions(int i) {
-			return new LuceneOptions(classIndexes.get(i), classStores.get(i));
+			if(classIndexes.size() > 0 && classStores.size() > 0){
+				return new LuceneOptions(classIndexes.get(i), classStores.get(i));
+			}
+			return null;
 		}
 
 		protected LuceneOptions getFieldLuceneOptions(int i, Object value) {

@@ -22,6 +22,8 @@ public class PurgeAllLuceneWork extends LuceneWork implements Serializable {
 			indexWriter.deleteDocuments( term );
 		}catch(Exception e){
 			throw new RuntimeException("不能操作");
+		}finally{
+			closeWriter(indexWriter);
 		}
 	}
 }

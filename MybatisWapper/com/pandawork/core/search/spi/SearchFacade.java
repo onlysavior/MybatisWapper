@@ -6,7 +6,6 @@ import org.apache.lucene.document.Document;
 import org.apache.lucene.index.IndexWriter;
 
 import com.pandawork.core.dao.impl.CommonDaoUtil;
-import com.pandawork.core.entity.AbstractEntity;
 import com.pandawork.core.search.backend.AddLuceneWork;
 import com.pandawork.core.search.backend.DeleteLuceneWork;
 import com.pandawork.core.search.backend.LuceneWork;
