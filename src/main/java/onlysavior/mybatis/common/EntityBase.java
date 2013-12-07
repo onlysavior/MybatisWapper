@@ -8,11 +8,7 @@ import java.util.Date;
 import java.util.LinkedList;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Administrator
- * Date: 13-12-6
- * Time: 下午11:36
- * To change this template use File | Settings | File Templates.
+ * the base class of all the entities
  */
 public abstract class EntityBase implements Serializable {
     abstract long getId();
